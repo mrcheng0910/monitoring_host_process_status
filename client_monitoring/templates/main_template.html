@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    {% block title_name %}
+    <title></title>
+    {% end %}
+    <link rel="shortcut icon" href="{{static_url("favicon.ico")}}">
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.css" rel="stylesheet">
+    <link href="{{static_url('css/sb-admin-2.css')}}" rel="stylesheet">
+    <!--引用其他外来脚本-->
+    {% block head_link %}
+    {% end %}
+    <style>
+        .navbar-brand {
+        padding: 0px;
+        }
+        .navbar-brand>img {
+        height: 100%;
+        padding: 8px;
+        width: auto;
+        }
+    </style>
+        
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <!--<a class="navbar-brand" href="/">-->
+                    <!--<img src="{{static_url("favicon.ico")}}" alt="Logo">主机及程序状态监控系统-->
+                <!--</a>-->
+              <!--<a class="navbar-brand" href="/">主机及程序状态监控系统</a>-->
+            </div>
+            <!-- /.navbar-header -->
+            <!-- 这部分是导航条右边的人头 -->
+            <ul class="nav navbar-top-links navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="/login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+            <!-- /这部分是导航条右边的人头 -->
+            <div class="navbar-default sidebar" role="navigation">
+                <div class="sidebar-nav navbar-collapse">
+                    <ul class="nav" id="side-menu">
+                        <!-- 搜索 -->
+                        <li class="sidebar-search">
+                            <div class="input-group custom-search-form">
+                                <input type="text" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <!-- /input-group -->
+                        </li>
+                        <!-- /搜索 -->
+                        <li>
+                            <a href="/process_index">
+                                <i class="fa fa-dashboard fa-fw"></i> 进程状态信息概览
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-dashboard fa-fw"></i> 主机状态信息概览
+                            </a>
+                        </li>
+                         <li>
+                            <a href="#">
+                                <i class="fa fa-bar-chart-o fa-fw"></i> 录入主机和进程
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="/input_host">录入主机信息</a>
+                                </li>
+                                <li>
+                                    <a href="/input_process">录入进程信息</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                         <li>
+                            <a href="/development_schedule">
+                                <i class="fa fa-dashboard fa-fw"></i> 系统开发进度安排
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+            <!-- /.navbar-static-side -->
+        </nav>
+        <div id="page-wrapper">
+            <!--正文-->
+            {% block page %}
+            {% end %}
+        </div>
+    </div>
+    <br>
+    <footer>
+    <p class="text-center">
+        <strong>
+            Copyright © 2014-2015
+            <a href="#">网络与信息安全技术研究中心</a>
+        </strong>
+    </p>
+    </footer>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>
+    <script src={{static_url("js/sb-admin-2.js")}}></script>
+    <!--引入其他外来脚本-->
+    {% block foot_script %}
+    {% end %}
+</body>
+
+</html>

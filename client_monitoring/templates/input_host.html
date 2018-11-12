@@ -1,0 +1,83 @@
+{% extends "main_template.html" %}
+
+{% block title_name %}
+<title>主机及进程状态监控系统</title>
+{% end %}
+
+{% block page %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">录入远程主机信息</h1>
+    </div>
+</div>
+
+<!--row-->
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                录入远程主机信息
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <form  role="form">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label  for="host_ip">主机地址:</label>
+                                <input type="text" class="form-control" id="host_ip">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label  for="port">端口号:</label>
+                                <input type="text" class="form-control" id="port" placeholder="默认端口：22">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group">
+                                <label  for="login_name">账户名称:</label>
+                                <input type="text" id="login_name" class="form-control">
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                         <div class="col-lg-4">
+                            <div class="form-group">
+                                <label  for="pwd">密码:</label>
+                                <input type="password" id="pwd" class="form-control" >
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+
+                             <div class="form-group">
+                                  <label  for="comment">服务器备注:</label>
+                                <input type="text" id="comment" class="form-control">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                              <button type="button" class="btn btn-primary" id="test">连接测试</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button type="button" class="btn btn-primary" id="save">保存主机</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3"></div>
+</div>
+
+
+{% end %}
+
+{% block foot_script %}
+<script src="{{ static_url("js/input_host.js")}}"></script>
+{% end %}

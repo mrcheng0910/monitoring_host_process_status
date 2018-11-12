@@ -1,0 +1,146 @@
+[I 181104 17:53:01 web:2106] 304 GET / (10.236.79.254) 20.92ms
+[I 181104 18:08:23 web:2106] 200 GET / (10.236.79.254) 21.68ms
+[I 181104 18:08:46 web:2106] 200 GET /process_details?process_id=14 (10.236.79.254) 12.49ms
+[I 181104 18:08:46 web:2106] 200 GET /process_details/data?process_id=14&stamp=0.17923544038110184 (10.236.79.254) 10.71ms
+[I 181104 18:08:54 web:2106] 304 GET /input_host (10.236.79.254) 12.28ms
+[I 181104 18:08:57 web:2106] 304 GET / (10.236.79.254) 16.44ms
+[I 181104 18:08:59 web:2106] 304 GET / (10.236.79.254) 19.51ms
+[I 181104 18:09:00 web:2106] 304 GET /input_host (10.236.79.254) 13.70ms
+[I 181104 18:09:01 web:2106] 304 GET /input_host (10.236.79.254) 11.51ms
+[I 181104 18:09:01 web:2106] 304 GET /input_host (10.236.79.254) 13.43ms
+[I 181104 18:09:02 web:2106] 304 GET / (10.236.79.254) 18.75ms
+[I 181104 18:09:04 web:2106] 304 GET / (10.236.79.254) 18.85ms
+[I 181104 18:09:18 web:2106] 200 GET /process_details?process_id=12 (10.236.79.254) 13.40ms
+[I 181104 18:09:18 web:2106] 200 GET /process_details/data?process_id=12&stamp=0.4609627999125139 (10.236.79.254) 9.59ms
+[I 181104 18:09:46 web:2106] 304 GET / (10.236.79.254) 17.85ms
+[I 181104 18:09:50 web:2106] 304 GET / (10.236.79.254) 17.91ms
+[I 181104 18:11:10 web:2106] 304 GET / (10.236.79.254) 12.75ms
+[I 181104 18:13:35 web:2106] 304 GET / (10.236.79.254) 18.55ms
+[I 181104 18:14:00 web:2106] 304 GET /input_host (10.236.79.254) 14.20ms
+[I 181104 18:14:01 web:2106] 304 GET /input_host (10.236.79.254) 13.86ms
+[I 181104 18:14:01 web:2106] 304 GET /input_host (10.236.79.254) 14.20ms
+[I 181104 18:14:02 web:2106] 304 GET /input_host (10.236.79.254) 11.84ms
+[I 181104 18:14:03 web:2106] 304 GET / (10.236.79.254) 18.68ms
+[I 181104 18:14:05 web:2106] 304 GET /input_host (10.236.79.254) 16.30ms
+[I 181104 18:14:06 web:2106] 304 GET / (10.236.79.254) 19.55ms
+[I 181104 18:14:08 web:2106] 304 GET / (10.236.79.254) 16.59ms
+[I 181104 18:35:53 web:2106] 200 GET / (10.236.79.254) 19.78ms
+[I 181104 18:46:35 web:2106] 304 GET / (10.236.79.254) 18.58ms
+[I 181104 18:46:56 web:2106] 304 GET /process_details?process_id=12 (10.236.79.254) 11.69ms
+[I 181104 18:46:56 web:2106] 200 GET /process_details/data?process_id=12&stamp=0.045121696825020985 (10.236.79.254) 10.42ms
+[I 181104 19:14:03 web:2106] 200 GET / (10.236.79.254) 21.65ms
+[I 181104 19:14:08 web:2106] 304 GET /input_host (10.236.79.254) 14.21ms
+[I 181104 19:25:59 web:2106] 200 GET / (10.236.79.254) 22.18ms
+[I 181104 19:26:08 web:2106] 200 GET /process_details?process_id=11111 (10.236.79.254) 9.83ms
+[I 181104 19:26:08 web:2106] 200 GET /process_details/data?process_id=11111&stamp=0.990330176465668 (10.236.79.254) 10.29ms
+[I 181104 19:27:36 web:2106] 304 GET / (10.236.79.254) 21.41ms
+[I 181104 19:27:43 web:2106] 304 GET /process_details?process_id=12 (10.236.79.254) 12.60ms
+[I 181104 19:27:43 web:2106] 200 GET /process_details/data?process_id=12&stamp=0.22551594219708826 (10.236.79.254) 9.41ms
+[I 181104 19:27:50 web:2106] 304 GET /input_host (10.236.79.254) 7.66ms
+[I 181104 19:28:06 transport:1687] Connected (version 2.0, client OpenSSH_7.2p2)
+[I 181104 19:28:06 transport:1687] Authentication (password) successful!
+[I 181104 19:28:06 web:2106] 304 GET /input_host/test?host_ip=10.245.146.208&port=22&login_name=cyn&pwd=cynlmh (10.236.79.254) 138.12ms
+[I 181104 19:28:15 web:2106] 304 GET /input_host (10.236.79.254) 12.44ms
+[I 181104 19:28:16 web:2106] 304 GET /input_host (10.236.79.254) 13.29ms
+[I 181104 19:28:17 web:2106] 304 GET /input_host (10.236.79.254) 12.85ms
+[I 181104 19:28:19 web:2106] 304 GET /input_host (10.236.79.254) 12.18ms
+[I 181104 19:28:22 web:2106] 304 GET / (10.236.79.254) 16.31ms
+[I 181104 19:28:46 web:2106] 304 GET / (10.236.79.254) 16.76ms
+[I 181104 19:28:53 web:2106] 200 GET /process_details?process_id=111233 (10.236.79.254) 10.72ms
+[I 181104 19:28:53 web:2106] 200 GET /process_details/data?process_id=111233&stamp=0.4505005911304254 (10.236.79.254) 11.64ms
+[I 181104 19:29:34 web:2106] 304 GET / (10.236.79.254) 16.31ms
+[I 181104 19:30:04 web:2106] 200 GET /process_details?process_id=1111111 (10.236.79.254) 8.85ms
+[I 181104 19:30:04 web:2106] 200 GET /process_details/data?process_id=1111111&stamp=0.9529188886637361 (10.236.79.254) 10.98ms
+[I 181104 19:30:33 web:2106] 304 GET /input_host (10.236.79.254) 11.64ms
+[I 181104 19:30:34 web:2106] 304 GET /input_host (10.236.79.254) 13.28ms
+[I 181104 19:30:35 web:2106] 304 GET /input_host (10.236.79.254) 14.92ms
+[I 181104 19:30:36 web:2106] 304 GET / (10.236.79.254) 19.10ms
+[I 181104 19:30:37 web:2106] 304 GET / (10.236.79.254) 14.13ms
+[I 181104 19:30:39 web:2106] 304 GET / (10.236.79.254) 20.01ms
+[I 181104 19:30:40 web:2106] 304 GET / (10.236.79.254) 18.89ms
+[I 181104 19:31:40 web:2106] 200 GET / (10.236.79.254) 18.22ms
+[I 181104 19:31:40 web:2106] 200 GET /static/favicon.ico?v=8e930b3cedb17c7fd38fad027c852f3b (10.236.79.254) 10.73ms
+[I 181104 19:31:58 web:2106] 200 GET / (10.236.79.254) 19.99ms
+[I 181104 19:31:58 web:2106] 200 GET /static/favicon.ico?v=8e930b3cedb17c7fd38fad027c852f3b (10.236.79.254) 1.05ms
+[I 181104 19:32:17 web:2106] 304 GET / (10.236.79.254) 19.17ms
+[I 181104 19:32:17 web:2106] 200 GET /static/favicon.ico?v=8e930b3cedb17c7fd38fad027c852f3b (10.236.79.254) 2.18ms
+[I 181104 19:32:36 web:2106] 304 GET / (10.236.79.254) 18.53ms
+[I 181104 19:32:38 web:2106] 200 GET /input_host (10.236.79.254) 12.06ms
+[I 181104 19:32:39 web:2106] 304 GET /input_host (10.236.79.254) 11.45ms
+[I 181104 19:32:39 web:2106] 304 GET /input_host (10.236.79.254) 11.39ms
+[I 181104 19:32:41 web:2106] 304 GET / (10.236.79.254) 17.57ms
+[I 181104 19:32:52 web:2106] 200 GET /process_details?process_id=14 (10.236.79.254) 8.96ms
+[I 181104 19:32:52 web:2106] 200 GET /process_details/data?process_id=14&stamp=0.6957465676569983 (10.236.79.254) 9.19ms
+[I 181104 19:33:55 web:2106] 304 GET /input_host (10.236.79.254) 12.17ms
+[I 181104 19:36:06 web:2106] 304 GET / (10.236.79.254) 15.96ms
+[I 181104 20:25:47 web:2106] 304 GET / (10.236.79.254) 24.35ms
+[I 181104 20:25:57 web:2106] 200 GET /process_details?process_id=11111 (10.236.79.254) 7.43ms
+[I 181104 20:25:57 web:2106] 200 GET /process_details/data?process_id=11111&stamp=0.5063719656108288 (10.236.79.254) 11.87ms
+[I 181104 20:26:01 web:2106] 304 GET / (10.236.79.254) 17.00ms
+[I 181105 07:39:40 web:2106] 200 GET / (10.236.79.254) 87.56ms
+[I 181105 07:40:06 web:2106] 200 GET /process_details?process_id=14 (10.236.79.254) 11.10ms
+[I 181105 07:40:06 web:2106] 200 GET /process_details/data?process_id=14&stamp=0.8322856009724422 (10.236.79.254) 14.06ms
+[I 181105 07:40:32 web:2106] 304 GET / (10.236.79.254) 24.12ms
+[I 181105 07:43:09 web:2106] 304 GET / (10.236.79.254) 20.34ms
+[I 181105 07:43:24 web:2106] 200 GET /input_host (10.236.79.254) 17.66ms
+[I 181105 07:43:24 web:2106] 200 GET /static/js/test_connect.js?v=792ee89cfbc35434d790927a43f62841 (10.236.79.254) 8.75ms
+[I 181105 07:43:50 transport:1687] Connected (version 2.0, client OpenSSH_6.6.1p1)
+[I 181105 07:43:50 transport:1687] Authentication (password) successful!
+[I 181105 07:43:51 web:2106] 200 GET /input_host/test?host_ip=10.245.146.216&port=22&login_name=cyn&pwd=cynlmh (10.236.79.254) 149.03ms
+[I 181105 07:43:53 transport:1687] Connected (version 2.0, client OpenSSH_6.6.1p1)
+[I 181105 07:43:53 transport:1687] Authentication (password) successful!
+[I 181105 07:43:53 web:2106] 304 GET /input_host/test?host_ip=10.245.146.216&port=22&login_name=cyn&pwd=cynlmh (10.236.79.254) 139.25ms
+[I 181105 07:43:57 web:2106] 304 GET /input_host (10.236.79.254) 12.45ms
+[I 181105 07:43:58 web:2106] 304 GET /input_host (10.236.79.254) 16.88ms
+[I 181105 07:43:59 web:2106] 304 GET / (10.236.79.254) 22.86ms
+[I 181105 07:44:15 web:2106] 304 GET / (10.236.79.254) 20.32ms
+[I 181105 07:44:40 web:2106] 304 GET /input_host (10.236.79.254) 9.11ms
+[I 181105 07:44:42 web:2106] 304 GET / (10.236.79.254) 19.04ms
+[I 181105 07:44:44 web:2106] 304 GET /input_host (10.236.79.254) 14.58ms
+[I 181105 07:44:46 web:2106] 304 GET / (10.236.79.254) 23.08ms
+[I 181105 07:45:08 web:2106] 304 GET / (10.236.79.254) 17.57ms
+[I 181105 07:45:09 web:2106] 200 GET /static/favicon.ico?v=8e930b3cedb17c7fd38fad027c852f3b (10.236.79.254) 3.15ms
+[I 181105 07:45:59 web:2106] 304 GET / (10.236.79.254) 23.05ms
+[I 181105 07:46:06 web:2106] 200 GET /process_details?process_id=1111111 (10.236.79.254) 13.78ms
+[I 181105 07:46:07 web:2106] 200 GET /process_details/data?process_id=1111111&stamp=0.5755483307766684 (10.236.79.254) 14.62ms
+[I 181105 07:46:29 web:2106] 304 GET /input_host (10.236.79.254) 9.66ms
+[I 181105 07:46:29 web:2106] 304 GET /input_host (10.236.79.254) 12.65ms
+[I 181105 07:46:30 web:2106] 304 GET /input_host (10.236.79.254) 15.11ms
+[I 181105 07:46:30 web:2106] 304 GET /input_host (10.236.79.254) 14.11ms
+[I 181105 07:46:31 web:2106] 304 GET /input_host (10.236.79.254) 13.15ms
+[I 181105 07:46:31 web:2106] 304 GET /input_host (10.236.79.254) 15.32ms
+[I 181105 07:46:31 web:2106] 304 GET /input_host (10.236.79.254) 12.37ms
+[I 181105 07:46:32 web:2106] 304 GET /input_host (10.236.79.254) 11.18ms
+[I 181105 07:46:32 web:2106] 304 GET /input_host (10.236.79.254) 14.29ms
+[I 181105 07:46:32 web:2106] 304 GET /input_host (10.236.79.254) 11.46ms
+[I 181105 07:46:33 web:2106] 304 GET /input_host (10.236.79.254) 12.88ms
+[I 181105 07:46:35 web:2106] 304 GET / (10.236.79.254) 21.58ms
+[I 181105 07:46:56 web:2106] 304 GET /input_host (10.236.79.254) 16.40ms
+[I 181105 07:46:57 web:2106] 304 GET /input_host (10.236.79.254) 13.83ms
+[I 181105 07:46:58 web:2106] 304 GET /input_host (10.236.79.254) 14.07ms
+[I 181105 07:46:59 web:2106] 304 GET / (10.236.79.254) 17.41ms
+[I 181105 07:47:01 web:2106] 304 GET /input_host (10.236.79.254) 13.36ms
+[I 181105 07:47:02 web:2106] 304 GET /input_host (10.236.79.254) 14.07ms
+[I 181105 07:47:03 web:2106] 304 GET / (10.236.79.254) 13.34ms
+[I 181105 07:47:48 web:2106] 304 GET /process_details?process_id=14 (10.236.79.254) 10.81ms
+[I 181105 07:47:48 web:2106] 200 GET /process_details/data?process_id=14&stamp=0.2601256275533326 (10.236.79.254) 11.30ms
+[I 181105 07:48:03 web:2106] 304 GET / (10.236.79.254) 19.04ms
+[I 181105 07:48:10 web:2106] 304 GET / (10.236.79.254) 16.03ms
+[I 181105 07:50:45 web:2106] 304 GET / (10.236.79.254) 23.16ms
+[I 181105 08:04:24 web:2106] 304 GET /input_host (10.236.79.254) 23.44ms
+[I 181105 08:04:26 web:2106] 304 GET /input_host (10.236.79.254) 15.67ms
+[I 181105 08:06:59 web:2106] 200 GET / (10.236.79.254) 19.61ms
+[I 181105 08:07:07 web:2106] 304 GET /process_details?process_id=14 (10.236.79.254) 12.40ms
+[I 181105 08:07:07 web:2106] 200 GET /process_details/data?process_id=14&stamp=0.8098877789274761 (10.236.79.254) 13.32ms
+[I 181105 08:09:06 autoreload:196] /root/cyn/monitoring_process_status/client_monitoring/handlers/input_host.py modified; restarting server
+Traceback (most recent call last):
+  File "server.py", line 8, in <module>
+    from application import Application
+  File "/root/cyn/monitoring_process_status/client_monitoring/application.py", line 6, in <module>
+    from urls import urls 
+  File "/root/cyn/monitoring_process_status/client_monitoring/urls.py", line 7, in <module>
+    from handlers.input_host import InputHostHandler,InputHostTestHandler
+  File "/root/cyn/monitoring_process_status/client_monitoring/handlers/input_host.py", line 95
+    def
+      ^
+SyntaxError: invalid syntax

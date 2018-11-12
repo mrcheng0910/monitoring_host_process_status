@@ -1,0 +1,124 @@
+{% extends "main_template.html" %}
+
+{% block title_name %}
+<title>系统待开发功能与进度安排</title>
+{% end %}
+
+{% block page %}
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">系统待开发功能与进度安排</h1>
+    </div>
+</div>
+
+<!--row-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3> 人员管理功能</h3>
+        <ol>
+            <li>人员信息添加与更新，包括邮箱，用于提醒功能</li>
+            <li>主机分享功能，将主机账户信息分享给其他人</li>
+            <li>进程分享，查看某些关注的进程信息，用于管理</li>
+        </ol>
+        <hr>
+
+        <h3> 进程管理功能</h3>
+        <ol>
+            <li><s>进程执行功能</s> (2018.11.12) </li>
+            <blockquote>
+                根据进程运行的情况，但停止后，可以通过Web页面重新执行。
+            </blockquote>
+            <li> <S> 查看程序运行日志 </S> （2018.11.7）</li>
+            <blockquote>
+                浏览器查看最新的固定行数日志
+            </blockquote>
+
+            <li><S>下载程序运行日志</S>（2018.11.7）</li>
+            <blockquote>
+                压缩后，将日志文件下载到本地，直接从远程主机通过浏览器下载到本地，而不是从远程主机下载到web服务器上，再从服务器上通过浏览器下载到本地
+            </blockquote>
+            <li><s>统计进程占用虚拟内存情况</s>（2018.11.8）</li>
+            <li><s>统计进程占用内存情况</s>（2018.11.8）</li>
+            <li><s>统计进程产生日志情况</s>（2018.11.8）</li>
+            <li><s>统计进程占用CPU百分比</s>（2018.11.8）</li>
+            <li><s>统计进程占用内存百分比</s>（2018.11.8）</li>
+            <li>子进程情况</li>
+            <blockquote>
+                父子进程的管理，防止程序异常
+            </blockquote>
+            <li>进程网络情况（上行和下行），查阅相关资料</li>
+            <li><s>进程更详细信息</s>(2018.11.12)</li>
+            <blockquote>
+                进程的实际启动时间和运行时间（非cpu时间）
+                ps -eo pid,lstart,etime,cmd | grep test.py
+            </blockquote>
+        </ol>
+
+        <hr>
+
+        <h3> 主机状态监控</h3>
+        <ol>
+            <li>主机管理（添加、删除、修改）</li>
+            <li>定期获取主机状态（监测系统）</li>
+            <blockquote>
+                主机状态包括内存、硬盘、缓存、网络等情况
+            </blockquote>
+            <li>Web界面展示系统状态</li>
+            <li>外部访问IP，记录下来，查看学校的端口情况</li>
+            <li><strong>主机性能分析（重要）</strong></li>
+        </ol>
+
+        <hr>
+        <h3> 预警功能</h3>
+        <ol>
+            <li>预警策略定义</li>
+            <blockquote>
+                什么情况需要进行预警，告知给用户，是按次、天、固定时间，频率是多少？
+            </blockquote>
+            <li>预警功能</li>
+            <blockquote>
+                需要在后台探测端发现异常后，就要进行预警
+            </blockquote>
+            <li>预警功能设置，包括提醒邮箱，提醒方法</li>
+            <li>系统内部通知功能</li>
+        </ol>
+        <hr>
+        <h3> 主机和进程异常定义</h3>
+        <ol>
+            <li>什么是进程异常</li>
+            <blockquote>
+                目前是把主机无法登录后，不知道进程的状态称作：异常，需要分析更多进程异常，例如CPU占用过高，内存过高，也为异常
+            </blockquote>
+            <li>什么是主机异常</li>
+            <blockquote>
+                主机无法连接（停止）、无网络、磁盘少于阈值、CPU占用过高等情况，可以都称为异常
+            </blockquote>
+        </ol>
+
+        <hr>
+        <h3> 系统设置功能</h3>
+        <ol>
+            <li>设置预警内容</li>
+            <li>设置查看日志的最大行数</li>
+            <li>设置某个进程的提醒邮箱</li>
+        </ol>
+
+
+        <hr>
+        <h3> 系统优化和美化</h3>
+        <ol>
+            <li>美化页面警告功能</li>
+            <li>模拟系统查看日志，黑色背景和白色字体，以及有行号，使用序列表li实现</li>
+        </ol>
+
+        <hr>
+        <h3> 系统架构</h3>
+
+         <img src="{{ static_url('img/system.jpg')}}" class="img-rounded">
+    </div>
+
+</div>
+
+{% end %}

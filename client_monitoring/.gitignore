@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.so
+*.class
+*~
+.idea/
+build/
+/dist/
+MANIFEST
+/tornado.egg-info/
+

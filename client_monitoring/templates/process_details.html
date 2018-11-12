@@ -1,0 +1,347 @@
+{% extends "main_template.html" %}
+
+{% block title_name %}
+<title>主机及进程状态监控系统</title>
+{% end %}
+
+{% block page %}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <h1 class="page-header">进程详细状态信息</h1>
+    </div>
+</div>
+
+<!--row-->
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 进程状态信息
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="host_ip" class="col-md-1 control-label">主机地址</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="host_ip" readonly>
+                        </div>
+                        <label for="pid" class="col-md-1 control-label">进程ID</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="pid" class="form-control" readonly>
+                        </div>
+
+                        <label for="process_status" class="col-md-1 control-label">进程状态</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="process_status" class="form-control" readonly>
+                        </div>
+
+                        <label for="process_error" class="col-md-1 control-label">异常原因</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="process_error" class="form-control" readonly>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="shell" class="col-md-1 control-label">执行命令</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="shell" readonly>
+                        </div>
+                        <label for="cmd" class="col-md-1 control-label">执行参数</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="cmd" class="form-control" readonly>
+                        </div>
+
+                        <label for="interval_time" class="col-md-1 control-label">间隔时长</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="interval_time" class="form-control" readonly>
+                        </div>
+
+                        <label for="comment" class="col-md-1 control-label">备注</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="comment" class="form-control" readonly>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="process_create" class="col-md-1 control-label">创建时间</label>
+                        <div class="col-md-2">
+                            <input type="text" class="form-control" id="process_create" readonly>
+                        </div>
+                        <label for="process_detect" class="col-md-1 control-label">最近监测时间</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="process_detect" class="form-control" readonly>
+                        </div>
+
+                        <label for="process_long" class="col-md-1 control-label">监测时长</label>
+                        <div class="col-md-1">
+                              <input type="text"  id="process_long" class="form-control" readonly>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="process_log_route" class="col-md-1 control-label">日志路径</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="process_log_route" readonly>
+                        </div>
+                        <label for="log_name" class="col-md-1 control-label">日志名称</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="log_name" class="form-control" readonly>
+                        </div>
+
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="code_route" class="col-md-1 control-label">代码路径</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="code_route" class="form-control" readonly>
+                        </div>
+                         <label for="code_name" class="col-md-1 control-label">代码名称</label>
+                        <div class="col-md-2">
+                              <input type="text"  id="code_name" class="form-control" readonly>
+                        </div>
+                        <label  class="col-md-2 control-label"  id="shuoming" hidden> 注意：与执行参数中的代码名称保持一致</label>
+
+                    </div>
+
+
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-offset-1 col-md-4">
+                            <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-primary" id="update">最新状态</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-primary" id="stop">停止进程</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-primary" id="run">运行进程</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button type="button" class="btn btn-primary" id="nofocus">取消监控</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                             <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="col-md-offset-1 col-md-6">
+                                        <button type="button" class="btn btn-primary" id="check_log" data-toggle="modal" data-target="#log_modal">查看日志</button>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <button type="button" class="btn btn-primary" id="download_log" >下载日志</button>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+
+                        <div class="col-md-2">
+                             <div class="panel panel-primary">
+                                <div class="panel-body">
+                                    <div class="col-md-offset-2 col-md-6">
+                                        <button type="button" class="btn btn-primary" id="edit_process" data-toggle="modal" data-target="#process_modal">编辑进程</button>
+                                    </div>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--用于显示日志内容-->
+<div class="modal fade" id="log_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					程序运行日志（最新的100行）
+				</h4>
+			</div>
+			<div class="modal-body">
+
+                <form role="form">
+                  <div class="form-group">
+                    <textarea class="form-control text-info" rows="20" id="test" ></textarea>
+                  </div>
+                </form>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+
+
+
+<!--用于显示进程信息内容-->
+<div class="modal fade" id="process_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 800px;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+					&times;
+				</button>
+				<h4 class="modal-title" id="myModalLabel">
+					可编辑的进程信息
+				</h4>
+			</div>
+			<div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning">修改后的程序信息，除日志外，其他信息则是在重新执行程序时才会生效！</div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="shell_modal" class="col-md-2 control-label">执行命令</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="shell_modal">
+                        </div>
+                        <label for="cmd_modal" class="col-md-2 control-label">执行参数</label>
+                        <div class="col-md-4">
+                            <input type="text"  id="cmd_modal" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="log_route_modal" class="col-md-2 control-label">日志路径</label>
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="log_route_modal">
+                        </div>
+                        <label for="log_name_modal" class="col-md-2 control-label">日志名称</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="log_name_modal" class="form-control" >
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                         <label for="code_route_modal" class="col-md-2 control-label">代码路径</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="code_route_modal" class="form-control" >
+                        </div>
+                         <label for="code_name_modal" class="col-md-2 control-label">代码名称</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="code_name_modal" class="form-control" >
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                         <label for="code_route_modal" class="col-md-2 control-label">间隔分钟</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="interval_time_modal" class="form-control" >
+                        </div>
+                         <label for="comment_modal" class="col-md-2 control-label">备注</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="comment_modal" class="form-control" >
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" id="submit_edit_process">提交更改</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        </div>
+		</div>
+	</div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 进程CPU占用百分比
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="container_cpu" style="width: 100%; height: 350px; margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 进程内存占用百分比
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <div id="container_mem" style="width: 100%; height: 350px; margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 虚拟内存占用(MB)
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                 <div id="container_vsz" style="width: 100%; height: 350px; margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 进程内存占用(MB)
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                 <div id="container_rss" style="width: 100%; height: 350px; margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                截止到 <strong>{{datetime.datetime.now().strftime('%Y-%m-%d')}}</strong> 运行日志大小(MB)
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                 <div id="container_log" style="width: 100%; height: 350px; margin: 0 auto"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+{% end %}
+
+{% block foot_script %}
+<script src="//cdn.hcharts.cn/highcharts/highcharts.js"></script>
+
+<script src="{{ static_url("js/process_details.js")}}"></script>
+
+<script>
+    showProcessDetails({{process_id}});
+
+</script>
+
+{% end %}
