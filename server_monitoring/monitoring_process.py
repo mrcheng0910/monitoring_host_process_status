@@ -14,6 +14,7 @@ import schedule
 import time
 import base64
 from datetime import datetime
+from exception_email_user import send_process_exception
 
 
 def obtain_monitoring_host_process():
@@ -26,6 +27,21 @@ def obtain_monitoring_host_process():
     host_process = group_host_process(host_process_result)
     db.close()
     return host_process
+
+
+def process_id_to_user(process_id):
+    """通过process_id获取用户的邮箱地址和主机地址"""
+    sql = "SELECT email,host_ip,pid,code_route,process_name FROM `process_info`,user_account,host_info WHERE process_id = '%s' AND user_account.user_id = process_info.user_id AND host_info.host_id = process_info.host_id"
+    db = MySQL(SOURCE_CONFIG)
+    db.query(sql % process_id)
+    email_host = db.fetch_all_rows()
+    email = email_host[0][0]
+    host = base64.decodestring(email_host[0][1])
+    pid = email_host[0][2]
+    code_route = email_host[0][3]
+    process_name = email_host[0][4]
+    db.close()
+    return email, host,pid,code_route,process_name
 
 
 def group_host_process(host_process_result):
@@ -106,6 +122,12 @@ def insert_host_error(error,process_ids):
     sql = 'insert into process_status (process_id,cpu,mem,vsz,rss,status,error_info,log_size) values("%s","%s","%s","%s","%s","%s","%s","%s")'
     for _,process_id,_ in process_ids:
         db.insert(sql % (process_id, '', '', '', '', status, error_info,'-3'))   # -3表示日志的主机错误
+        email, host, pid, code_route, code_name = process_id_to_user(process_id)
+        content = (pid, host, status, error_info, code_route, code_name)
+        if send_process_exception([email], content):
+            print "邮件预警成功:" + email
+        else:
+            print "邮件预警失败:" + email
     db.close()
 
 
@@ -127,6 +149,15 @@ def update_process_info(db, status_error, process_status, process_id,log_size):
             error_info='程序正常'
 
     db.insert(sql % (process_id, cpu, mem, vsz,rss, status, error_info,log_size))
+
+    # 预警通知
+    if status == "停止" or status=="异常":
+        email,host,pid,code_route,code_name = process_id_to_user(process_id)
+        content = (pid,host,status,error_info,code_route,code_name)
+        if send_process_exception([email],content):
+            print "邮件预警成功:"+email
+        else:
+            print "邮件预警失败:"+email
 
 
 def extract_process_status(raw_process_info):
@@ -166,8 +197,8 @@ def main():
 
 
 if __name__ == '__main__':
-    #main()
-    schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    main()
+    # schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)

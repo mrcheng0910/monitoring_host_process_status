@@ -47,6 +47,8 @@ AND process_info.process_id IN (
 			FROM
 				`process_status`,
 				process_info
+				WHERE process_info.process_id = process_status.process_id
+                  AND process_info.save = 1
 			GROUP BY
 				process_id
 		) tt

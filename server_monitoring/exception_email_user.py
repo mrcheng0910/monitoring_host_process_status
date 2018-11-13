@@ -6,9 +6,9 @@ import ConfigParser
 mailto_list=['mrcheng0910@gmail.com']           # 收件人(列表)
 
 def get_user():
+    """获取发件人信息"""
     cf = ConfigParser.ConfigParser()
     cf.read('email.conf')
-
     mail_user = cf.get('email_user','mail_user')
     mail_pass = cf.get('email_user','mail_pass')
     mail_postfix = cf.get('email_user','mail_postfix')
@@ -17,6 +17,7 @@ def get_user():
 
 
 def send_mail(to_list,sub,content):
+    """发送邮件"""
     mail_user, mail_pass, mail_postfix, mail_host = get_user()
     me="网络安全技术研究中心-预警系统"+"<"+mail_user+"@"+mail_postfix+">"
     # msg = MIMEText(content,_subtype='plain')
@@ -35,9 +36,17 @@ def send_mail(to_list,sub,content):
         print e
         return False
 
+def send_process_exception(to_lis,content):
+    sub = "程序异常"
 
+    content = """
+    <div>进程ID：<input type="text" value="%s"></div>
+    <div>主机IP：<input type="text" value="%s"></div>
+    <div>程序状态：<input type="text" value="%s"></div>
+    <div>异常原因：<input type="text" value="%s"></div>
+    <div>代码路径：<input type="text" value="%s"></div>
+    <div>代码名称：<input type="text" value="%s"></div>
 
-if send_mail(mailto_list,"进程异常警告信息","<h1>进程1异常了</h1>"):  # 邮件主题和邮件内容
-    print "done!"
-else:
-    print "failed!"
+    """ % content
+
+    return send_mail(to_lis,sub,content)
