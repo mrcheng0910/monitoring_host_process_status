@@ -35,6 +35,7 @@ class ProcessIndexHandler(BaseHandler):
         index_db = ProcessDb()
         user_id = self.get_current_user()
         user_process_status = index_db.fetch_user_process(user_id)
+        user_name = self.get_current_user_name()
         process_status = []
         for i in user_process_status:
             i['host_ip'] = base64.decodestring(i['host_ip'])
@@ -47,9 +48,9 @@ class ProcessIndexHandler(BaseHandler):
             process_good_running = status_counter['正常'],
             process_exception_running=status_counter['异常'],
             process_stop_running=status_counter['停止'],
-            process_status = process_status
+            process_status = process_status,
+            user_name = user_name
         )
-
 
     def format_data(self, user_process_status):
         status_counter = Counter()
@@ -230,8 +231,9 @@ class SubmitProcessHandler(BaseHandler):
         cmd = self.get_argument('cmd', None)
         interval_time = self.get_argument('interval_time', None)
         comment = self.get_argument('comment', None)
+        warning_times = self.get_argument('warning_times', None)
         indexdb = ProcessDb()
-        result = indexdb.update_process(process_id,log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment)
+        result = indexdb.update_process(process_id,log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment,warning_times)
         self.write(json.dumps({'result':result}))
 
 

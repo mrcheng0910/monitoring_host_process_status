@@ -82,6 +82,10 @@
                         <div class="col-md-1">
                               <input type="text"  id="process_long" class="form-control" readonly>
                         </div>
+                        <label for="warning_times" class="col-md-1 control-label">预警次数</label>
+                        <div class="col-md-1">
+                              <input type="text"  id="warning_times" class="form-control" readonly>
+                        </div>
 
                     </div>
 
@@ -240,15 +244,25 @@
                     </div>
 
                     <div class="col-md-12">
-                         <label for="code_route_modal" class="col-md-2 control-label">间隔分钟</label>
+                         <label for="interval_time_modal" class="col-md-2 control-label">间隔分钟</label>
                         <div class="col-md-4">
-                              <input type="text"  id="interval_time_modal" class="form-control" >
+                              <input type="text"  id="interval_time_modal" class="form-control" onblur="intervalTimeRequire()" onkeyup="this.value=this.value.replace(/\D/g,'')">
                         </div>
                          <label for="comment_modal" class="col-md-2 control-label">备注</label>
                         <div class="col-md-4">
                               <input type="text"  id="comment_modal" class="form-control" >
                         </div>
                     </div>
+
+                     <div class="col-md-12">
+                         <label for="warning_times_modal" class="col-md-2 control-label">预警次数</label>
+                        <div class="col-md-4">
+                              <input type="text"  id="warning_times_modal" class="form-control" onkeyup="this.value=this.value.replace(/\D/g,'')">
+                        </div>
+                    </div>
+
+
+
 
             </div>
         </div>
@@ -341,6 +355,7 @@
 
 <script>
     showProcessDetails({{process_id}});
+
 
 </script>
 

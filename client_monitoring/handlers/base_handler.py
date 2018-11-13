@@ -15,6 +15,9 @@ class BaseHandler(tornado.web.RequestHandler):
         """
         user_id = self.get_secure_cookie("user_id")
         return user_id
+    def get_current_user_name(self):
+        user_name = self.get_secure_cookie("user_name")
+        return user_name
 
     def certify_user(self):
         """

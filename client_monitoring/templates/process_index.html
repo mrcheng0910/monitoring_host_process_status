@@ -159,12 +159,15 @@
 <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/1.0.7/js/dataTables.responsive.min.js"></script>
+<script src="{{ static_url("js/managecookie.js")}}"></script>
 <script>
 $(document).ready(function() {
     $('#dataTables-example').DataTable({
         responsive: true
     });
 });
+    setCookie("username","{{ user_name }}",30);
+    $("#username").text(getCookie('username'));
 </script>
 
 {% end %}

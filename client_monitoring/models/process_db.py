@@ -67,7 +67,8 @@ class ProcessDb (BaseDb):
             vsz,
             rss,
             log_size,
-            interval_time
+            interval_time,
+            warning_times
         FROM
             `process_status`,
             process_info,
@@ -105,11 +106,11 @@ class ProcessDb (BaseDb):
             return "执行失败"
 
 
-    def update_process(self, process_id,log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment):
+    def update_process(self, process_id,log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment,warning_times):
         """取消关注进程"""
-        sql = 'update process_info set log_route = "%s",code_route="%s",log_name="%s",process_name = "%s",shell = "%s",cmd="%s",interval_time="%s",comment="%s" WHERE process_id = "%s"'
+        sql = 'update process_info set log_route = "%s",code_route="%s",log_name="%s",process_name = "%s",shell = "%s",cmd="%s",interval_time="%s",comment="%s",warning_times="%s" WHERE process_id = "%s"'
         try:
-            self.db.execute(sql % (log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment,process_id))
+            self.db.execute(sql % (log_route,code_route,log_name,code_name,shell,cmd,interval_time,comment,warning_times,process_id))
             return "执行成功"
         except:  # 已存在该结果
             return "执行失败"

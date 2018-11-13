@@ -14,12 +14,11 @@ class CheckLogin(BaseDb):
         if not username or not password:
             return
 
-        sql = "SELECT user_id, pwd FROM user_account WHERE user = %s"
-        print sql
+        sql = "SELECT user_id, pwd,user_name FROM user_account WHERE user = %s"
         result = self.db.query(sql, username)
 
         for value in result:
             if value.pwd == password:
-                return value.user_id
+                return value.user_id,value.user_name
         else:
-            return
+            return '',''

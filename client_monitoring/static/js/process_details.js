@@ -1,5 +1,14 @@
 var gloable_process_id; // 全局变量
 
+function setCookie(cname,cvalue,exdays)
+{
+  var d = new Date();
+  d.setTime(d.getTime()+(exdays*24*60*60*1000));
+  var expires = "expires="+d.toGMTString();
+  document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+
 $(function () {
 
     //按钮绑定最新动态功能
@@ -100,7 +109,7 @@ $(function () {
     });
 
 
-    //绑定编辑进程信息按钮
+    //按钮绑定编辑进程信息按钮
     $("#edit_process").bind('click',function() {
         $("#log_route_modal").val($("#process_log_route").val());
         $("#log_name_modal").val($("#log_name").val());
@@ -110,9 +119,11 @@ $(function () {
         $("#cmd_modal").val($("#cmd").val());
         $("#interval_time_modal").val($("#interval_time").val());
         $("#comment_modal").val($("#comment").val());
+        $("#warning_times_modal").val($("#warning_times").val());
+
     });
 
-    //绑定提交编辑进程信息按钮
+    //按钮绑定提交编辑进程信息功能
     $("#submit_edit_process").bind('click',function() {
         var logRoute = $("#log_route_modal").val();
         var logName = $("#log_name_modal").val();
@@ -122,17 +133,25 @@ $(function () {
         var cmd = $("#cmd_modal").val();
         var interalTime = $("#interval_time_modal").val();
         var comment = $("#comment_modal").val();
-        var url = "/process_details/submit_process?code_route="+codeRoute+"&code_name="+codeName+"&log_route="+logRoute+"&log_name="+logName+"&shell="+shell+"&cmd="+cmd+"&process_id="+gloable_process_id+"&interval_time="+interalTime+"&comment="+comment;
+        var warningTimes = $("#warning_times_modal").val();
+        var url = "/process_details/submit_process?code_route="+codeRoute+"&code_name="+codeName+"&log_route="+logRoute+"&log_name="+logName+"&shell="+shell+"&cmd="+cmd+"&process_id="+gloable_process_id+"&interval_time="+interalTime+"&comment="+comment+"&warning_times="+warningTimes;
         $.getJSON(url, function (data)
         {
             alert(data.result);
             // $('#process_modal').modal('hide');
             location.reload();  //刷新
         });
-
     });
-
 });
+
+// 对探测间隔时长输入进行监测
+function intervalTimeRequire(){
+    var interval_time = $("#interval_time_modal").val();
+    if (interval_time<15){
+        alert("探测间隔时间最短为15分钟");
+        $("#interval_time_modal").val(15);  // 重置为15分钟
+    }
+}
 
 
 // 显示进程详细信息
@@ -188,6 +207,7 @@ function showCurrentStatus(current_status) {
     $("#cmd").attr("value",current_status.cmd);
     $("#comment").attr("value",current_status.comment);
     $("#interval_time").attr("value",current_status.interval_time);
+    $("#warning_times").attr("value",current_status.warning_times);
 
     // 设置按钮的状态，防止用户误操作
     if (current_status.status == '正常') {

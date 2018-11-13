@@ -51,12 +51,13 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> <i id="username"></i> </a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置参数 </a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="/login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="/login"><i class="fa fa-sign-out fa-fw"></i> 退出系统 </a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -137,6 +138,10 @@
     <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="//cdn.bootcss.com/metisMenu/2.2.0/metisMenu.min.js"></script>
     <script src={{static_url("js/sb-admin-2.js")}}></script>
+    <script src={{static_url("js/managecookie.js")}}></script>
+    <script>
+        $("#username").text(getCookie('username'));
+    </script>
     <!--引入其他外来脚本-->
     {% block foot_script %}
     {% end %}
