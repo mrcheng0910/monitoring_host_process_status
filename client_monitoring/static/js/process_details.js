@@ -33,6 +33,10 @@ $(function () {
         var hostIp = $("#host_ip").val();
         var pid = $("#pid").val();
         var url = "/process_details/stop?host_ip="+hostIp+"&pid="+pid;
+
+
+        if (!window.confirm('确定要终止当前进程吗？')) return;
+
         $.getJSON(url, function (data)
         {
 
@@ -48,6 +52,7 @@ $(function () {
     // 绑定取消按钮功能
     $("#nofocus").bind('click',function() {
         var url = "/process_details/nofocus?process_id="+gloable_process_id;
+        if (!window.confirm('确定要取消关注当前进程吗？')) return;
         $.getJSON(url, function (data)
         {
             alert(data.result);
@@ -134,6 +139,7 @@ $(function () {
         var interalTime = $("#interval_time_modal").val();
         var comment = $("#comment_modal").val();
         var warningTimes = $("#warning_times_modal").val();
+        if (!window.confirm('确定要更新当前进程信息吗？')) return;
         var url = "/process_details/submit_process?code_route="+codeRoute+"&code_name="+codeName+"&log_route="+logRoute+"&log_name="+logName+"&shell="+shell+"&cmd="+cmd+"&process_id="+gloable_process_id+"&interval_time="+interalTime+"&comment="+comment+"&warning_times="+warningTimes;
         $.getJSON(url, function (data)
         {
@@ -143,6 +149,7 @@ $(function () {
         });
     });
 });
+
 
 // 对探测间隔时长输入进行监测
 function intervalTimeRequire(){
