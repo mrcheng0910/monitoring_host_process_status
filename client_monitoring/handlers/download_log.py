@@ -23,6 +23,7 @@ def connect_host(host,log_route,log_name):
     remote_file = sftp_client.open(log_route+new_log_name)
     log_content = remote_file.read()
     remote_file.close()
+    # todo 增加删除远程压缩文件功能
     client.close()
     return log_content, new_log_name
 

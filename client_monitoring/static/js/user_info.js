@@ -22,7 +22,7 @@ $(function () {
         $.getJSON(url, function (data)
         {
             alert(data.result);
-            setCookie('username',userName,30);
+            // setCookie('username',userName,30);
             location.reload();
         });
     });

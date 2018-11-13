@@ -1,12 +1,14 @@
 #encoding:utf-8
+"""
+发送异常预警信息给用户邮箱
+"""
 import smtplib
 from email.mime.text import MIMEText
 import ConfigParser
 
-mailto_list=['mrcheng0910@gmail.com']           # 收件人(列表)
 
 def get_user():
-    """获取发件人信息"""
+    """获取发件人邮箱账号信息"""
     cf = ConfigParser.ConfigParser()
     cf.read('email.conf')
     mail_user = cf.get('email_user','mail_user')
@@ -19,7 +21,7 @@ def get_user():
 def send_mail(to_list,sub,content):
     """发送邮件"""
     mail_user, mail_pass, mail_postfix, mail_host = get_user()
-    me="网络安全技术研究中心-预警系统"+"<"+mail_user+"@"+mail_postfix+">"
+    me="预警系统—网络安全技术研究中心"+"<"+mail_user+"@"+mail_postfix+">"
     # msg = MIMEText(content,_subtype='plain')
     msg = MIMEText(content,'html','utf-8')
     msg['Subject'] = sub
@@ -36,9 +38,10 @@ def send_mail(to_list,sub,content):
         print e
         return False
 
-def send_process_exception(to_lis,content):
-    sub = "程序异常"
 
+def send_process_exception(to_lis,content):
+    """发送进程异常信息给用户"""
+    sub = "程序异常"
     content = """
     <div>进程ID：<input type="text" value="%s"></div>
     <div>主机IP：<input type="text" value="%s"></div>

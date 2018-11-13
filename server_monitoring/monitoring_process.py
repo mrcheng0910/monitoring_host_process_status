@@ -130,7 +130,7 @@ def insert_host_error(error,process_ids):
     for _,process_id,_ in process_ids:
         db.insert(sql % (process_id, '', '', '', '', status, error_info,'-3'))   # -3表示日志的主机错误
         email, host, pid, code_route, code_name,warning_times = process_id_to_user(process_id)
-        if warning_times != 0:
+        if warning_times > 0:
             content = (pid, host, status, error_info, code_route, code_name)
             if send_process_exception([email], content):
                 print "邮件预警成功:" + email
@@ -162,7 +162,7 @@ def update_process_info(db, status_error, process_status, process_id,log_size):
     # 预警通知
     if status == "停止" or status=="异常":
         email,host,pid,code_route,code_name,warning_times = process_id_to_user(process_id)
-        if warning_times != 0:
+        if warning_times > 0:
             content = (pid,host,status,error_info,code_route,code_name)
             if send_process_exception([email],content):
                 print "邮件预警成功:"+email
@@ -208,8 +208,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
-    # schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    # main()
+    schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
