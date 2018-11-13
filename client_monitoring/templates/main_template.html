@@ -16,12 +16,8 @@
     {% end %}
     <style>
         .navbar-brand {
-        padding: 0px;
-        }
-        .navbar-brand>img {
-        height: 100%;
-        padding: 8px;
-        width: auto;
+            font-size: 25px;
+            color: #6776ff;
         }
     </style>
         
@@ -32,16 +28,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <!--<a class="navbar-brand" href="/">-->
-                    <!--<img src="{{static_url("favicon.ico")}}" alt="Logo">主机及程序状态监控系统-->
-                <!--</a>-->
-              <!--<a class="navbar-brand" href="/">主机及程序状态监控系统</a>-->
+              <a class="navbar-brand" href="/">  远程主机及进程状态监控系统</a>
             </div>
             <!-- /.navbar-header -->
             <!-- 这部分是导航条右边的人头 -->
@@ -52,7 +39,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="#"><i class="fa fa-user fa-fw"></i> <i id="username"></i> </a>
+                            <a href="/user/index"><i class="fa fa-user fa-fw"></i> <i id="username"></i> </a>
                         </li>
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> 设置参数 </a>
                         </li>
@@ -129,8 +116,8 @@
     <footer>
     <p class="text-center">
         <strong>
-            Copyright © 2014-2015
-            <a href="#">网络与信息安全技术研究中心</a>
+            Copyright © 2014-2019 哈尔滨工业大学（威海）
+            <a href="http://nist.hitwh.edu.cn"> 网络与信息安全技术研究中心</a>
         </strong>
     </p>
     </footer>

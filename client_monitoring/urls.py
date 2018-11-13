@@ -11,6 +11,9 @@ from handlers.input_process_handler import InputProcessHandler,GetUserHostHandle
 
 from handlers.development_schedule_handler import ScheduleHandler
 
+from handlers.user_handler import UserIndexHandler,EditUserInfoHandler,EditPwdHandler
+
+
 urls = [
     (r'/login', LoginHandler),  # 登录首页
     (r'/development_schedule',ScheduleHandler), # 进度安排
@@ -44,6 +47,12 @@ urls = [
     (r'/input_process/get_host', GetUserHostHandler),
     (r'/input_process/get_process',GetProcessInfoHandler),
     (r'/input_process/save',ProcessSaveHandler),
+
+    # 用户管理
+    (r'/user/index',UserIndexHandler),
+    (r'/user/edit_user',EditUserInfoHandler),
+    (r'/user/edit_user_pwd',EditPwdHandler),
+
 
 
 
