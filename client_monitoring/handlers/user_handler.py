@@ -8,8 +8,7 @@ reload(sys) # Python2.5 初始化后会删除 sys.setdefaultencoding 这个方�
 sys.setdefaultencoding('utf-8')
 
 import tornado.web
-import paramiko
-import socket
+from datetime import datetime
 from base_handler import BaseHandler
 from client_monitoring.models.user_db import UserDb
 
@@ -68,3 +67,28 @@ class EditPwdHandler(BaseHandler):
         else:
             result = "密码不正确"
         self.write({'result':result})
+
+
+class AddUserHandler(BaseHandler):
+    """主机连接测试"""
+    @tornado.web.authenticated
+    def get(self):
+        if not self.certify_user():
+            return
+        # url = "/user/add_user?user_name=" + userName + "&login_name=" + loginName + "&pwd=" + newUserPwd + "&flag=" + newType + "&email=" + newEmail;
+        user_name = self.get_argument('user_name', None).strip()
+        user = self.get_argument('login_name', None).strip()
+        pwd = self.get_argument('pwd', None).strip()
+        flg = self.get_argument('flag', None).strip()
+        email = self.get_argument('email', None).strip()
+
+        create_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        user_id = self.generate_user_id(user,create_time)
+        user_db = UserDb()
+        result = user_db.add_new_user(user_id,user_name,user,pwd,email,flg)
+        self.write({'result':result})
+
+    def generate_user_id(self, user, create_time):
+        """生成进程id"""
+        user_id = abs(hash(user+ str(create_time)))% (10 ** 8)
+        return user_id

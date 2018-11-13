@@ -8,14 +8,14 @@
 
 
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-md-12">
         <h1 class="page-header">用户基本信息</h1>
     </div>
 </div>
 
 <!--row-->
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-md-6">
         <div class="panel panel-default">
             <div class="panel-heading">
                 用户基本信息
@@ -23,13 +23,13 @@
             <div class="panel-body">
                 <form  role="form">
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label  for="user_name">用户名</label>
                                 <input type="text" class="form-control" id="user_name" value="{{ user_name }}" readonly>
                             </div>
                         </div>
-                        <div class="col-lg-offset-1 col-lg-4">
+                        <div class="col-md-offset-1 col-md-4">
                             <div class="form-group">
                                 <label  for="login_name">登录名称</label>
                                 <input type="text" class="form-control" id="login_name" value="{{ login_name }}" readonly>
@@ -37,13 +37,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label  for="user_type">用户类型</label>
                                 <input type="text" id="user_type" class="form-control" value="{{ user_type }}" readonly>
                             </div>
                         </div>
-                         <div class="col-lg-offset-1 col-lg-4">
+                         <div class="col-md-offset-1 col-md-4">
                             <div class="form-group">
                                 <label  for="email">邮箱</label>
                                 <input type="text" class="form-control" id="email" value="{{ email }}" readonly>
@@ -53,19 +53,19 @@
                     </div>
 
                     <div class="row" hidden id ="edit_pwd">
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label  for="old_pwd">原密码</label>
                                 <input type="password" id="old_pwd" class="form-control">
                             </div>
                         </div>
-                         <div class="col-lg-4">
+                         <div class="col-md-4">
                             <div class="form-group">
                                 <label  for="new_pwd">新密码</label>
                                 <input type="password" class="form-control" id="new_pwd" >
                             </div>
                         </div>
-                        <div class="col-lg-4">
+                        <div class="col-md-4">
                             <div class="form-group">
                                 <label  for="confirm_pwd">确认密码</label>
                                 <input type="password" class="form-control" id="confirm_pwd">
@@ -75,16 +75,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-md-3">
                               <button type="button" class="btn btn-primary" id="edit_info">修改信息</button>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-md-3">
                             <button type="button" class="btn btn-primary" id="save" style=" display:none;">保存信息</button>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-md-3">
                             <button type="button" class="btn btn-primary" id="edit">修改密码</button>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-md-3">
                             <button type="button" class="btn btn-primary" id="save_edit_pwd" style="display: none">保存密码</button>
                         </div>
 
@@ -93,7 +93,71 @@
             </div>
         </div>
     </div>
-    <div class="col-lg-3"></div>
+    <div class="col-md-6">
+     <button type="button" class="btn btn-primary" id="add_user">添加用户</button>
+     <div class="panel panel-default" id="new_user" hidden>
+            <div class="panel-heading">
+                添加的用户基本信息
+            </div><!-- /.panel-heading -->
+            <div class="panel-body">
+                <form  role="form">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_name">用户名</label>
+                                <input type="text" class="form-control" id="new_user_name">
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_login_name">登录名称</label>
+                                <input type="text" class="form-control" id="new_user_login_name">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_pwd">密码</label>
+                                <input type="text" class="form-control" id="new_user_pwd">
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_confirm_pwd">确认密码</label>
+                                <input type="text" class="form-control" id="new_user_confirm_pwd">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_type">用户类型</label>
+                                <select class="form-control" id="new_user_type">
+                                    <option value="0">普通用户</option>
+                                    <option value="1">管理员</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <div class="form-group">
+                                <label  for="new_user_email">邮箱</label>
+                                <input type="text" class="form-control" id="new_user_email">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-3">
+                            <button type="button" class="btn btn-primary" id="save_new_user">保存信息</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
 
 
@@ -101,5 +165,6 @@
 
 {% block foot_script %}
 <script src="{{ static_url("js/user_info.js")}}"></script>
-<script src="{{ static_url("js/managecookie.js")}}"></script>
+
+
 {% end %}

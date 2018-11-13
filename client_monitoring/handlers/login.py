@@ -11,8 +11,6 @@ from client_monitoring.models.check_login import CheckLogin
 class LoginHandler(BaseHandler):
     """首页控制"""
     def get(self):
-
-
         self.render('login.html', flag=0)
 
     def post(self):

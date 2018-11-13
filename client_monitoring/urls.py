@@ -11,7 +11,7 @@ from handlers.input_process_handler import InputProcessHandler,GetUserHostHandle
 
 from handlers.development_schedule_handler import ScheduleHandler
 
-from handlers.user_handler import UserIndexHandler,EditUserInfoHandler,EditPwdHandler
+from handlers.user_handler import UserIndexHandler,EditUserInfoHandler,EditPwdHandler,AddUserHandler
 
 
 urls = [
@@ -52,6 +52,7 @@ urls = [
     (r'/user/index',UserIndexHandler),
     (r'/user/edit_user',EditUserInfoHandler),
     (r'/user/edit_user_pwd',EditPwdHandler),
+    (r'/user/add_user',AddUserHandler),
 
 
 

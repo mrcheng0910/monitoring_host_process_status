@@ -44,10 +44,14 @@ class UserDb(BaseDb):
             return "更改失败"
 
 
-
-
-
-
+    def add_new_user(self,user_id,user_name,user,pwd,email,flag):
+        """保存修改后的用户信息"""
+        sql = 'insert into user_account (user_id,user_name,user,pwd,email,flag) value("%s","%s","%s","%s","%s","%s")'
+        try:
+            self.db.execute(sql%(user_id,user_name,user,pwd,email,flag))
+            return "保存成功"
+        except torndb.IntegrityError:
+            return "保存失败，已有该注册用户信息"
 
 
 
