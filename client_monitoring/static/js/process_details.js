@@ -72,6 +72,9 @@ $(function () {
         var codeName = $("#code_name").val();
         var comment = $("#comment").val();
         var interval_time = $("#interval_time").val();
+        if (logName == ""){
+            logName = "nohup.out";
+        }
         var url = "/process_details/execute_process?code_route="+codeRoute+"&code_name="+codeName+"&log_route="+logRoute+"&log_name="+logName+"&shell="+shell+"&cmd="+cmd+"&process_id="+gloable_process_id+"&host_ip="+hostIp+"&comment="+comment+"&interval_time="+interval_time;
 
          $.getJSON(url, function (data)
@@ -230,6 +233,7 @@ function showCurrentStatus(current_status) {
          $("#interval_time").attr("readonly",false);
          $("#comment").attr("readonly",false);
          $("#log_name").attr("readonly",false);
+         $("#log_name").attr("placeholder","默认为nohup.out");
          $("#code_route").attr("readonly",false);
          $("#shuoming").attr("hidden",false);
 
