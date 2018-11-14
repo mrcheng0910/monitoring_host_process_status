@@ -22,6 +22,9 @@ $(function () {
     $("#save").bind('click',function() {
         var hostIp = $("#host_ip").val();
         var port = $("#port").val();
+        if (port == ""){
+            port = 22;  // 默认端口号为22
+        }
         var loginName = $("#login_name").val();
         var pwd = $("#pwd").val();
         var comment = $("#comment").val();
@@ -49,7 +52,7 @@ function reset() {
 
 // 验证用户输入内容是否合法
 function checkValidity(host_ip,port,login_name,pwd) {
-    if (host_ip=="" || port=="" || login_name=="" || pwd=="" )
+    if (host_ip==""  || login_name=="" || pwd=="" )
     {
         alert("所填信息不能为空");
         return false
