@@ -4,6 +4,9 @@ $(function () {
     $("#test").bind('click',function() {
         var hostIp = $("#host_ip").val();
         var port = $("#port").val();
+        if (port == ""){
+            port = 22;  // 默认端口号为22
+        }
         var loginName = $("#login_name").val();
         var pwd = $("#pwd").val();
         // 验证输入信息是否合法

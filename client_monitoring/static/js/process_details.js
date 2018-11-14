@@ -1,14 +1,5 @@
 var gloable_process_id; // 全局变量
 
-function setCookie(cname,cvalue,exdays)
-{
-  var d = new Date();
-  d.setTime(d.getTime()+(exdays*24*60*60*1000));
-  var expires = "expires="+d.toGMTString();
-  document.cookie = cname + "=" + cvalue + "; " + expires;
-}
-
-
 $(function () {
 
     //按钮绑定最新动态功能

@@ -109,12 +109,14 @@ $("#show_process").change(function(){
     var  processObj=document.getElementById('show_process');
     var  processIndex=processObj.selectedIndex;  //序号
     var  processInfo = processObj.options[processIndex].text;
+
     processInfo = processInfo.split(' '); // 分割为数组
+
     var pid = processInfo[0]; // 进程ID
-    var shell  = processInfo[1];  // 执行程序
+    var shell  = processInfo[2];  // 执行程序
     var cmd = "";   // 运行命令
     var codeName = ""; // 运行文件名称
-    var subProcessInfo = processInfo.slice(2,processInfo.length);
+    var subProcessInfo = processInfo.slice(3,processInfo.length);
     // 得到运行命令和运行文件名称
     for (var i=0;i<subProcessInfo.length;i++)
     {
