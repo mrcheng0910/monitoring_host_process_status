@@ -23,7 +23,7 @@
             <div class="panel-body">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <label for="host_ip" class="col-md-1 control-label">主机地址</label>
+                        <label for="host_ip" class="col-md-1 control-label">主机IP</label>
                         <div class="col-md-2">
                             <input type="text" class="form-control" id="host_ip" readonly>
                         </div>
@@ -43,19 +43,18 @@
                         </div>
                     </div>
 
-
                     <div class="form-group">
                         <label for="shell" class="col-md-1 control-label">执行命令</label>
                         <div class="col-md-2">
                             <input type="text" class="form-control" id="shell" readonly>
                         </div>
                         <label for="cmd" class="col-md-1 control-label">执行参数</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                               <input type="text"  id="cmd" class="form-control" readonly>
                         </div>
 
                         <label for="interval_time" class="col-md-1 control-label">间隔时长</label>
-                        <div class="col-md-2">
+                        <div class="col-md-1">
                               <input type="text"  id="interval_time" class="form-control" readonly>
                         </div>
 
@@ -70,11 +69,11 @@
 
                     <div class="form-group">
                         <label for="process_create" class="col-md-1 control-label">创建时间</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <input type="text" class="form-control" id="process_create" readonly>
                         </div>
-                        <label for="process_detect" class="col-md-1 control-label">最近监测时间</label>
-                        <div class="col-md-2">
+                        <label for="process_detect" class="col-md-1 control-label">监测时间</label>
+                        <div class="col-md-3">
                               <input type="text"  id="process_detect" class="form-control" readonly>
                         </div>
 
@@ -92,11 +91,11 @@
 
                     <div class="form-group">
                         <label for="process_log_route" class="col-md-1 control-label">日志路径</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             <input type="text" class="form-control" id="process_log_route" readonly>
                         </div>
                         <label for="log_name" class="col-md-1 control-label">日志名称</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                               <input type="text"  id="log_name" class="form-control" readonly>
                         </div>
 
@@ -106,26 +105,25 @@
                     <div class="form-group">
 
                         <label for="code_route" class="col-md-1 control-label">代码路径</label>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                               <input type="text"  id="code_route" class="form-control" readonly>
                         </div>
                          <label for="code_name" class="col-md-1 control-label">代码名称</label>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                               <input type="text"  id="code_name" class="form-control" readonly>
                         </div>
-                        <label  class="col-md-2 control-label"  id="shuoming" hidden> 注意：与执行参数中的代码名称保持一致</label>
+                        <label  class="col-md-2 control-label text-danger"  id="shuoming" hidden> 与执行参数中的代码名称保持一致</label>
 
                     </div>
-
-
+                </form>
 
                     <hr>
                     <div class="row">
-                        <div class="col-md-offset-1 col-md-4">
+                        <div class="col-md-6">
                             <div class="panel panel-primary">
                                 <div class="panel-body">
                                     <div class="col-md-3">
-                                        <button type="button" class="btn btn-primary" id="update">最新状态</button>
+                                        <button type="button" class="btn btn-primary" id="update" >最新状态</button>
                                     </div>
                                     <div class="col-md-3">
                                         <button type="button" class="btn btn-primary" id="stop">停止进程</button>
@@ -142,27 +140,27 @@
                         <div class="col-md-3">
                              <div class="panel panel-primary">
                                 <div class="panel-body">
-                                    <div class="col-md-offset-1 col-md-6">
+                                    <div class="col-md-6">
                                         <button type="button" class="btn btn-primary" id="check_log" data-toggle="modal" data-target="#log_modal">查看日志</button>
                                     </div>
-                                    <div class="col-md-5">
+                                    <div class="col-md-6">
                                         <button type="button" class="btn btn-primary" id="download_log" >下载日志</button>
                                     </div>
                                 </div>
                              </div>
                         </div>
 
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                              <div class="panel panel-primary">
                                 <div class="panel-body">
-                                    <div class="col-md-offset-2 col-md-6">
+                                    <div class="col-md-offset-3 col-md-6">
                                         <button type="button" class="btn btn-primary" id="edit_process" data-toggle="modal" data-target="#process_modal">编辑进程</button>
                                     </div>
                                 </div>
                              </div>
                         </div>
                     </div>
-                </form>
+{#                </form>#}
             </div>
         </div>
     </div>

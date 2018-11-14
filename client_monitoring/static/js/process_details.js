@@ -291,7 +291,7 @@ function  showTimeline(data,suffix,series_name,tag_name) {
    json.xAxis = xAxis;
    json.yAxis = yAxis;
    json.tooltip = tooltip;
-   json.legend = legend;
+   // json.legend = legend;
    json.series = series;
    $(tag_name).highcharts(json);
 }

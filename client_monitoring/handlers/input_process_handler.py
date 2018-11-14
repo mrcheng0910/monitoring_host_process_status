@@ -103,7 +103,6 @@ class GetProcessInfoHandler(BaseHandler):
             # 去除列表中多余的空值
             while '' in process_status:
                 process_status.remove('')
-            print process_status
             processes_id.append(process_status[1])
             process_status = process_status[1] + ' '+ process_status[2] + ' ' + ' '.join(process_status[7:])
             processes_status.append(process_status)
