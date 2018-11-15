@@ -1,6 +1,6 @@
 #encoding:utf-8
 """
-监测进程状态
+获取进程最新的状态
 """
 import sys
 reload(sys)

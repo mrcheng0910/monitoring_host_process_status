@@ -1,6 +1,6 @@
 #encoding: utf-8
 """
-读取程序日志
+执行指定程序
 """
 import sys
 reload(sys)

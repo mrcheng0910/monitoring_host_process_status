@@ -1,8 +1,8 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-
+#encoding:utf-8
+"""
+检测登录
+"""
 from base_db import BaseDb
-
 
 class CheckLogin(BaseDb):
 

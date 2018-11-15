@@ -1,12 +1,13 @@
 # encoding:utf-8
 
 """
-login handler
+登录页面
 """
 # from client_monitoring.models.check_login import CheckLogin
 
 from base_handler import BaseHandler
 from client_monitoring.models.check_login import CheckLogin
+
 
 class LoginHandler(BaseHandler):
     """首页控制"""

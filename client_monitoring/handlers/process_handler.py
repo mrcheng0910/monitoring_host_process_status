@@ -1,14 +1,10 @@
 # encoding:utf-8
 """
-首页handler
+进程管理handler
 """
-# import sys
-# sys.path.append("..")
 import tornado.web
 import json
 from collections import Counter
-import paramiko
-import socket
 # 加载中文
 import sys
 reload(sys) # Python2.5 初始化后会删除 sys.setdefaultencoding 这个方法，我们需要重新载入
@@ -74,7 +70,7 @@ class ProcessDetailsHandler(BaseHandler):
 
 
 class ProcessDetailsDataHandler(BaseHandler):
-    """进程详细页面控制"""
+    """进程获取进程首页数据"""
     @tornado.web.authenticated
     def get(self):
         if not self.certify_user():

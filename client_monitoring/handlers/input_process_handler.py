@@ -44,7 +44,7 @@ class GetUserHostHandler(BaseHandler):
 
 
 class GetProcessInfoHandler(BaseHandler):
-    """获取所在主机进程的详细信息"""
+    """获取进程的详细信息"""
 
     @tornado.web.authenticated
     def get(self):
@@ -135,7 +135,7 @@ class GetProcessInfoHandler(BaseHandler):
 
 
 class ProcessSaveHandler(BaseHandler):
-    """主机信息保存"""
+    """进程信息保存"""
 
     @tornado.web.authenticated
     def get(self):

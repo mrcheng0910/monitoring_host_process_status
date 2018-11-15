@@ -1,3 +1,4 @@
 .idea/
 .idea/vcs.xml
 server_monitoring/email.conf
+server_monitoring/*.out

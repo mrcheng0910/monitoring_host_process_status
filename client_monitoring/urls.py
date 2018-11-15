@@ -3,7 +3,9 @@
 系统路由设置
 """
 from handlers.login import LoginHandler
-from handlers.process_handler import ProcessIndexHandler,ProcessDetailsHandler,ProcessDetailsDataHandler,ExecuteLastProcessHandler,StopProcessHandler,NofocusProcessHandler,ReadLogHandler,DownloadlogHandler,SubmitProcessHandler,ExecuteProcessHandler
+from handlers.process_handler import ProcessIndexHandler,ProcessDetailsHandler,ProcessDetailsDataHandler,\
+    ExecuteLastProcessHandler,StopProcessHandler,NofocusProcessHandler,ReadLogHandler,DownloadlogHandler,\
+    SubmitProcessHandler,ExecuteProcessHandler
 from handlers.host_handler import HostIndexHandler
 
 from handlers.input_host_handler import InputHostIndexHandler,TestHostConnectionHandler,InputHostSaveHandler
@@ -21,17 +23,16 @@ urls = [
 
     #  进程内容
     (r'/process_index', ProcessIndexHandler),   # 首页
-    ## 进程详情
+    ##进程详情
     (r'/process_details',ProcessDetailsHandler),
     (r'/process_details/data',ProcessDetailsDataHandler),
-    (r'/process_details/execute_last', ExecuteLastProcessHandler),
+    (r'/process_details/execute_last', ExecuteLastProcessHandler),  # 获取程序最新的状态信息
     (r'/process_details/stop',StopProcessHandler),
     (r'/process_details/nofocus',NofocusProcessHandler),
     (r'/process_details/read_log',ReadLogHandler),
     (r'/process_details/download_log',DownloadlogHandler),
     (r'/process_details/submit_process',SubmitProcessHandler),  # 提交更新的进程信息
-    (r'/process_details/execute_process',ExecuteProcessHandler),  # 提交更新的进程信息
-
+    (r'/process_details/execute_process',ExecuteProcessHandler),  # 重新执行程序
 
     # 主机内容
     (r'/host_index', HostIndexHandler),   # 首页

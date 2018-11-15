@@ -1,10 +1,7 @@
 # encoding:utf-8
 
 """
-功能：获取首页展示所需数据
-作者：程亚楠
-更新时间：2016.1.12
-优化代码
+进程数据操作
 """
 from base_db import BaseDb
 import torndb

@@ -1,6 +1,6 @@
 # encoding:utf-8
 """
-主机handler
+主机handler（功能未实现，从进程管理那边复制过来）
 """
 
 import tornado.web
@@ -23,8 +23,7 @@ from download_log import connect_host as download_log_connect
 
 
 class HostIndexHandler(BaseHandler):
-    """进程首页控制"""
-
+    """主机首页控制"""
     @tornado.web.authenticated
     def get(self):
         if not self.certify_user():

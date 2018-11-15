@@ -1,6 +1,7 @@
 # encoding:utf-8
 """
-输入监控远程主机信息
+用户管理，包括添加、修改用户信息
+todo 增加删除功能
 """
 
 import sys
@@ -14,7 +15,7 @@ from client_monitoring.models.user_db import UserDb
 
 
 class UserIndexHandler(BaseHandler):
-    """主机首页控制"""
+    """用户首页"""
 
     @tornado.web.authenticated
     def get(self):
@@ -38,7 +39,7 @@ class UserIndexHandler(BaseHandler):
 
 
 class EditUserInfoHandler(BaseHandler):
-    """主机连接测试"""
+    """修改用户信息"""
     @tornado.web.authenticated
     def get(self):
         if not self.certify_user():
@@ -52,7 +53,7 @@ class EditUserInfoHandler(BaseHandler):
 
 
 class EditPwdHandler(BaseHandler):
-    """主机连接测试"""
+    """修改密码"""
     @tornado.web.authenticated
     def get(self):
         if not self.certify_user():
@@ -70,12 +71,11 @@ class EditPwdHandler(BaseHandler):
 
 
 class AddUserHandler(BaseHandler):
-    """主机连接测试"""
+    """增加用户"""
     @tornado.web.authenticated
     def get(self):
         if not self.certify_user():
             return
-        # url = "/user/add_user?user_name=" + userName + "&login_name=" + loginName + "&pwd=" + newUserPwd + "&flag=" + newType + "&email=" + newEmail;
         user_name = self.get_argument('user_name', None).strip()
         user = self.get_argument('login_name', None).strip()
         pwd = self.get_argument('pwd', None).strip()
@@ -88,7 +88,8 @@ class AddUserHandler(BaseHandler):
         result = user_db.add_new_user(user_id,user_name,user,pwd,email,flg)
         self.write({'result':result})
 
+
     def generate_user_id(self, user, create_time):
-        """生成进程id"""
+        """生成用户id"""
         user_id = abs(hash(user+ str(create_time)))% (10 ** 8)
         return user_id

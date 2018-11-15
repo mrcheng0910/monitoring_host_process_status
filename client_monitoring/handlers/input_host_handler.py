@@ -1,6 +1,6 @@
 # encoding:utf-8
 """
-输入监控远程主机信息
+录入监控远程主机信息
 """
 
 import sys
@@ -15,7 +15,7 @@ from client_monitoring.models.host_db import HostDb
 
 
 class InputHostIndexHandler(BaseHandler):
-    """主机首页控制"""
+    """录入主机首页控制"""
 
     @tornado.web.authenticated
     def get(self):
