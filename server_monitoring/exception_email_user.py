@@ -1,6 +1,7 @@
 #encoding:utf-8
 """
 发送异常预警信息给用户邮箱
+todo 偶尔发送失败或者被识别为垃圾邮件，需要进一步优化
 """
 import smtplib
 from email.mime.text import MIMEText
