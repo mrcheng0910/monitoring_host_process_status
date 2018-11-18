@@ -75,7 +75,7 @@ class ProcessDb (BaseDb):
         AND process_status.process_id = '%s'
         AND process_status.process_id = process_info.process_id
         AND host_info.host_id = process_info.host_id
-        ORDER BY detect_time DESC 
+        ORDER BY detect_time DESC Limit 1000
         """
         result =self.db.query(sql % (user_id,process_id))
         return result
