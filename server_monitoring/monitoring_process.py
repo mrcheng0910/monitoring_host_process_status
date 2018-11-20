@@ -180,7 +180,7 @@ def extract_process_status(raw_process_info,pid):
     while '' in process_info:  # 去除空格
         process_info.remove('')
     if process_info:
-        if pid != raw_process_info[1]:  # 可能获取的信息与pid不一样，用于判断这种情况
+        if str(pid) != str(process_info[1]):  # 可能获取的信息与pid不一样，用于判断这种情况
             cpu = mem = vsz = rss = 0
         else:
             cpu, mem, vsz, rss = process_info[2], process_info[3], process_info[4], process_info[5]
