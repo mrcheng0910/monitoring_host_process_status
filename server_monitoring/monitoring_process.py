@@ -173,7 +173,9 @@ def update_process_info(db, status_error, process_status, process_id,log_size):
 
 
 def extract_process_status(raw_process_info,pid):
-    """解析出进程的状态信息"""
+    """解析出进程的状态信息
+    todo: 存在潜在多条记录的情况，默认只处理一个，潜在bug
+    """
     process_info = raw_process_info.strip().split(' ')
     while '' in process_info:  # 去除空格
         process_info.remove('')
@@ -213,7 +215,8 @@ def main():
 
 if __name__ == '__main__':
     # main()
-    schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
+    # todo: 优化，循环探测时间使用配置文件，可以设置，方便修改
+    schedule.every(10).minutes.do(main)  # 10分钟循环探测一遍
     while True:
         schedule.run_pending()
         time.sleep(1)
