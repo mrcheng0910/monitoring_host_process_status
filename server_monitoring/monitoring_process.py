@@ -23,26 +23,6 @@ def obtain_monitoring_host_process():
     db = MySQL(SOURCE_CONFIG)
     # 获取超过间隔时间的进程
     sql = fetch_sql
-    sql = """
-    
-        SELECT
-	process_info.pid,
-	host_info.host_ip,
-	host_info. PORT,
-	host_info.login_name,
-	host_info.pwd,
-	process_info.process_id,
-	process_info.log_route,
-	process_info.log_name
-FROM
-	process_info,
-	host_info
-WHERE
-	process_info.host_id = host_info.host_id
-  AND process_info.pid = '16120'
-    
-    
-    """
     db.query(sql)
     host_process_result = db.fetch_all_rows()
     host_process = group_host_process(host_process_result)
@@ -232,8 +212,8 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
-    # schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
-    # while True:
-    #     schedule.run_pending()
-    #     time.sleep(1)
+    # main()
+    schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
