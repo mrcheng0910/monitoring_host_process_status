@@ -23,6 +23,26 @@ def obtain_monitoring_host_process():
     db = MySQL(SOURCE_CONFIG)
     # 获取超过间隔时间的进程
     sql = fetch_sql
+    sql = """
+    
+        SELECT
+	process_info.pid,
+	host_info.host_ip,
+	host_info. PORT,
+	host_info.login_name,
+	host_info.pwd,
+	process_info.process_id,
+	process_info.log_route,
+	process_info.log_name
+FROM
+	process_info,
+	host_info
+WHERE
+	process_info.host_id = host_info.host_id
+  AND process_info.pid = '16120'
+    
+    
+    """
     db.query(sql)
     host_process_result = db.fetch_all_rows()
     host_process = group_host_process(host_process_result)
@@ -116,7 +136,7 @@ def fetch_process_status(client, pid):
     error = stderr.read()
     # 判断stderr输出是否为空，为空则打印执行结果，不为空打印报错信息
     if not error:
-        process_status = extract_process_status(raw_process_info)
+        process_status = extract_process_status(raw_process_info,pid)
         return False, process_status
     else:
         return True, error
@@ -172,13 +192,16 @@ def update_process_info(db, status_error, process_status, process_id,log_size):
                 print "邮件预警失败:"+email
 
 
-def extract_process_status(raw_process_info):
+def extract_process_status(raw_process_info,pid):
     """解析出进程的状态信息"""
     process_info = raw_process_info.strip().split(' ')
     while '' in process_info:  # 去除空格
         process_info.remove('')
     if process_info:
-        cpu, mem, vsz, rss = process_info[2], process_info[3], process_info[4], process_info[5]
+        if pid != raw_process_info[1]:  # 可能获取的信息与pid不一样，用于判断这种情况
+            cpu = mem = vsz = rss = 0
+        else:
+            cpu, mem, vsz, rss = process_info[2], process_info[3], process_info[4], process_info[5]
     else:
         cpu = mem = vsz = rss = 0
     process_status = {
@@ -209,8 +232,8 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
-    schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    main()
+    # schedule.every(10).minutes.do(main)  # 15分钟循环探测一遍
+    # while True:
+    #     schedule.run_pending()
+    #     time.sleep(1)
