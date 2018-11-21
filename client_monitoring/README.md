@@ -43,3 +43,12 @@ python server.py  # 即可，或者使用nohup命令，让程序在后台运行�
 3. 监控进程的子进程
 5. 内存、cpu等展示页面，使用更细致的图进行展示，比如交易记录，可以拖动
 7. 增加主机状态的展示
+
+## 子系统截图
+
+
+![image](https://github.com/mrcheng0910/monitoring_host_process_status/blob/master/client_monitoring/index.png)
+
+![image](https://github.com/mrcheng0910/monitoring_host_process_status/blob/master/client_monitoring/process.png)
+
+
