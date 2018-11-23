@@ -88,7 +88,29 @@ $(function () {
         reset();
     }); //重置按钮功能
 
+    // 鼠标移动到较长的input文本框，显示完整信息
+    const inputElts = document.getElementsByTagName('input');
+    Array.from(inputElts).map(elt => {
+        elt.addEventListener('mouseenter', e => {
+            const inputElt = e.target,
+            font = window.getComputedStyle(inputElt)['font'];
+            width = elt.clientWidth;
+            if (inputElt.classList.contains('whole') && getTextWidth(inputElt.value, font) > width) {
+                inputElt.title = inputElt.value;
+            }
+            else inputElt.title = '';
+        })
+    })
 });
+
+//获取文本框的宽度
+function getTextWidth(text, font) {
+    const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement('canvas')),
+    context = canvas.getContext("2d");
+    context.font = font;
+    const metrics = context.measureText(text);
+    return metrics.width;
+}
 
 // 清空重置
 function reset() {
