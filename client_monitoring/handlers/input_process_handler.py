@@ -38,7 +38,6 @@ class GetUserHostHandler(BaseHandler):
             return
         host_db = HostDb()
         user_id = self.get_current_user()
-        # user_id = '1321313' # 用户id待读取
         hosts = host_db.get_user_exist_host(user_id)
         self.write(json.dumps(hosts))
 

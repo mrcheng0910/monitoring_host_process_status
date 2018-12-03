@@ -34,7 +34,6 @@ def connect_host(host,pid,log_route,log_name):
 
     status_error, process_status = fetch_process_status(client, pid)
     log_size = fetch_log_info(client, log_route, log_name)
-
     cpu, mem, vsz, rss = process_status['cpu'], process_status['mem'], process_status['vsz'], process_status['rss']
     if status_error:
         error_info = '程序异常' + str(status_error)
@@ -73,22 +72,26 @@ def fetch_process_status(client, pid):
     error = stderr.read()
     # 判断stderr输出是否为空，为空则打印执行结果，不为空打印报错信息
     if not error:
-        process_status = extract_process_status(raw_process_info)
+        process_status = extract_process_status(raw_process_info,pid)
         return False, process_status
     else:
         return True, error
 
-def extract_process_status(raw_process_info):
+def extract_process_status(raw_process_info,pid):
     """解析出进程的状态信息"""
+
     process_info = raw_process_info.strip().split(' ')
     while '' in process_info:  # 去除空格
         process_info.remove('')
     if process_info:
-        cpu, mem, vsz, rss = process_info[2], process_info[3], process_info[4], process_info[5]
+        if str(pid) != str(process_info[1]):  # 可能获取的信息与pid不一样，用于判断这种情况
+            cpu = mem = vsz = rss = 0
+        else:
+            cpu, mem, vsz, rss = process_info[2], process_info[3], process_info[4], process_info[5]
     else:
         cpu = mem = vsz = rss = 0
     process_status = {
-        'cpu': cpu, # cpu%
+        'cpu': cpu,  # cpu%
         'mem': mem,  # 存储%
         'vsz': vsz,  # 虚拟内存
         'rss': rss  # 固定内存

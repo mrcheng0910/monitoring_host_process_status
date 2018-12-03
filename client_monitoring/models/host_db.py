@@ -32,7 +32,6 @@ class HostDb(BaseDb):
 
         hosts = [['请选择或新建主机',0]]  # 第一选项
         sql = 'select host_id, host_ip from host_info WHERE user_id = "%s"'
-
         result = self.db.query(sql % user_id)
         for i in result:
             try:  # 测试数据，因为之前录入的主机为进行加密
@@ -54,26 +53,3 @@ class HostDb(BaseDb):
         pwd = base64.decodestring(result['pwd'])
         host_ip = base64.decodestring(host_ip)
         return (host_ip, port, login_name, pwd)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

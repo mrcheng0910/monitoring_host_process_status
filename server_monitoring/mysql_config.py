@@ -64,3 +64,22 @@ AND process_info.process_id IN (
 			process_status.process_id IS NULL
 )
 """
+
+sql_test = """
+        SELECT
+	process_info.pid,
+	host_info.host_ip,
+	host_info. PORT,
+	host_info.login_name,
+	host_info.pwd,
+	process_info.process_id,
+	process_info.log_route,
+	process_info.log_name
+FROM
+	process_info,
+	host_info
+WHERE
+	process_info.host_id = host_info.host_id
+	and process_info.pid='5380'
+
+    """
