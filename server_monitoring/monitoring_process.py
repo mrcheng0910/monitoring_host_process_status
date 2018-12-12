@@ -57,6 +57,7 @@ def group_host_process(host_process_result):
     host_process = defaultdict(list)
     for hp in host_process_result:
         host_process[(hp[1],hp[2],hp[3],hp[4])].append((hp[0],hp[5],hp[6],hp[7]))
+    print host_process
     return host_process
 
 
@@ -128,8 +129,8 @@ def insert_host_error(error,process_ids):
     error_info = '主机异常:'+ str(error)
     status = '异常'
     sql = 'insert into process_status (process_id,cpu,mem,vsz,rss,status,error_info,log_size) values("%s","%s","%s","%s","%s","%s","%s","%s")'
-    for _,process_id,_ in process_ids:
-        db.insert(sql % (process_id, '', '', '', '', status, error_info,'-3'))   # -3表示日志的主机错误
+    for _,process_id,_,_ in process_ids:
+        db.insert(sql % (process_id, 0, 0, 0, 0, status, error_info,'-3'))   # -3表示日志的主机错误
         email, host, pid, code_route, code_name,warning_times = process_id_to_user(process_id)
         if warning_times > 0:
             content = (pid, host, status, error_info, code_route, code_name)
@@ -207,6 +208,8 @@ def main():
     print str(datetime.now()), '开始探测主机和进程状态'
     host_process = obtain_monitoring_host_process()
     for host in host_process:
+        print host
+        print host_process[host]
         error = connect_host(host, host_process[host])
         if error:
             insert_host_error(error, host_process[host])
@@ -214,7 +217,7 @@ def main():
 
 
 if __name__ == '__main__':
-    # main()
+    # main()  # 测试使用
     # todo: 优化，循环探测时间使用配置文件，可以设置，方便修改
     schedule.every(10).minutes.do(main)  # 10分钟循环探测一遍
     while True:

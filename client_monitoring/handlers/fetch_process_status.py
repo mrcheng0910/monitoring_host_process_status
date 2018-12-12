@@ -28,7 +28,7 @@ def connect_host(host,pid,log_route,log_name):
     if host_error:
         error_info = '主机异常:'+ str(host_error)
         status = "异常"
-        cpu = mem = vsz = rss = ""
+        cpu = mem = vsz = rss = 0
         log_size = '-3' # 主机连接错误
         return cpu,mem,vsz,rss,log_size,status,error_info
 
